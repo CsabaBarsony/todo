@@ -1,0 +1,25 @@
+<template name="layout">
+	<header>
+		<h2>Todo</h2>
+		{{> header}}
+	</header>
+    {{> yield}}
+</template>
+
+<template name="header">
+	<a href="{{pathFor 'postList'}}">Posts</a>
+	{{#if currentUser}}<a href="{{pathFor 'postSubmit'}}">Submit Post</a>{{/if}}
+	{{> loginButtons}}
+</template>
+
+<template name="loading">
+	<h3>Loading...</h3>
+</template>
+
+<template name="notFound">
+	<h3>404 Not found</h3>
+</template>
+
+<template name="accessDenied">
+	<h3>Access Denied</h3>
+</template>

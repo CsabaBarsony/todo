@@ -1,0 +1,29 @@
+<template name="postList">
+    <div class="posts">
+        {{#each posts}}
+            {{> postItem}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="postItem">
+	<h3><a href="{{pathFor 'postPage'}}">{{title}}</a>|<span>{{domain}}</span></h3>
+</template>
+
+<template name="postPage">
+    {{> postItem}}
+</template>
+
+<template name="postSubmit">
+	<form class="post-submit-form">
+		<label for="post-url">
+			<span>URL</span>
+			<input type="text" id="post-url" name="url" />
+		</label>
+		<label for="post-title">
+			<span>Title</span>
+			<input type="text" id="post-title" name="title" />
+		</label>
+		<button type="submit">Submit</button>
+    </form>
+</template>
