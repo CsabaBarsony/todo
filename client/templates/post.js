@@ -29,3 +29,26 @@ Template.postSubmit.events({
 		});
 	}
 });
+
+Template.postEdit.events({
+	"submit #post-edit-form": function(e){
+		var params = {
+			url: e.target.url.value,
+			title: e.target.title.value
+		};
+
+		Posts.update(this._id, { $set: params }, function(error){
+			if(error) console.log(error.reason);
+			else Router.go("postPage", { _id: this._id });
+		});
+
+		return false;
+	},
+	"click #delete": function(e){
+		if(confirm("Delete this post?")){
+			Posts.remove(this._id);
+			Router.go("postsList");
+		}
+		return false;
+	}
+});

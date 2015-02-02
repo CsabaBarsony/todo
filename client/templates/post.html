@@ -7,7 +7,7 @@
 </template>
 
 <template name="postItem">
-	<h3><a href="{{pathFor 'postPage'}}">{{title}}</a>|<span>{{domain}}</span></h3>
+	<h3><a href="{{pathFor 'postPage'}}">{{title}}</a>|<span>{{domain}}</span><a href="{{pathFor 'postPage'}}">Discuss</a></h3>
 </template>
 
 <template name="postPage">
@@ -26,4 +26,13 @@
 		</label>
 		<button type="submit">Submit</button>
     </form>
+</template>
+
+<template name="postEdit">
+	<form id="post-edit-form">
+		<input type="text" name="url" id="url" value="{{url}}" placeholder="Your URL"/>
+		<input type="text" name="title" id="title" value="{{title}}" placeholder="Your post's name"/>
+		<input type="submit" value="Submit" />
+	</form>
+	<a href="#" id="delete">Delete post</a>
 </template>
